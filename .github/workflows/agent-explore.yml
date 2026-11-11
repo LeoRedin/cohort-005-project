@@ -196,6 +196,10 @@ jobs:
         if: steps.batch.outputs.numbers != '[]'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          FACTORY_PROVIDER: ${{ vars.FACTORY_PROVIDER || 'claude' }}
+          FACTORY_MODEL: ${{ vars.FACTORY_MODEL }}
+          FACTORY_BASE_URL: ${{ vars.FACTORY_BASE_URL }}
+          FACTORY_PROVIDER_KEY: ${{ secrets.FACTORY_PROVIDER_KEY }}
           OUTPUT_DIR: ${{ runner.temp }}
         # The plan comes back as plan.json, shaped and validated by
         # .sandcastle/agent-workflows/explore/plan-schema.ts.
